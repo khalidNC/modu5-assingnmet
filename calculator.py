@@ -28,6 +28,15 @@ def modulus(x, y):
   
   return reminder
 
+# User's input Function
+# def user_input():
+#   num1 = input('Enter first number ... ')
+#   if num1 
+#   # num2 = input('Enter second number ... ')
+
+#   return float(num1)
+
+
 """ 
 Calculation function:
 1. Takes input as user's choice of which function among the five that the usres want to perform.
@@ -38,8 +47,12 @@ Calculation function:
 def calculation():
   print("Select operation: \n1. Adding \n2. Subtraction \n3. Multiplication \n4. Division \n5. Modulus")
 
-  # Take input from the users to choose one of the oparations.
-  choice = int(input("Choose one of the above options(1/2/3/4/5) ... "))
+  # Take input from the users to make choice of one of the oparations. And the exception handling.
+  try:
+    choice = int(input("Choose one of the above options(1/2/3/4/5) ... "))
+  except ValueError as err:
+    print("Enter a valid number")
+    return err
 
   list_of_choice = [1, 2, 3, 4, 5]
 
@@ -67,8 +80,9 @@ def calculation():
 
 
 # While loop to have option to run the program till users want.
-while True:
-  calculation()
-  more_calculation = input("Do you want to calculate more? (yes/no) ... ")
-  if more_calculation != "yes" and more_calculation != "y":
-    break
+if __name__ == "__main__":
+  while True:
+    calculation()
+    more_calculation = input("Do you want to calculate more? (yes/no) ... ")
+    if more_calculation != "yes" and more_calculation != "y":
+      break
