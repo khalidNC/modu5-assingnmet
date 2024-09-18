@@ -1,16 +1,16 @@
-# Adding funcion: this function adds two numbers and returns the result
+# Adding function: this function adds two numbers and returns the result.
 def adding(x, y):
   return x + y
 
-# Subtraction function: this function subtracts one number from another number and returns the result
+# Subtraction function: this function subtracts one number from another number and returns the result.
 def subtraction(x, y):
   return x - y
 
-# Multiplication function: This function multiply two numbers and returns the result
+# Multiplication function: This function multiply two numbers and returns the result.
 def multiplication(x, y):
   return x * y
 
-# Division function: This function divide one numbers by another number and returns the result, with error handling when division by zero
+# Division function: This function divide one numbers by another number and returns the result, with error handling when division by zero.
 def division(x, y):
   try:
     result = x / y

@@ -4,7 +4,7 @@ import random
 low_bound = 1
 high_bound = 100
 
-# Generate a random number and store in a variable which is our secret number
+# Generate a random number and store in a variable which is our secret number.
 secret_number = random.randint(low_bound, high_bound)
 
 """
