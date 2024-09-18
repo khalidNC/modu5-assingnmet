@@ -14,27 +14,40 @@ def multiplication(x, y):
 def division(x, y):
   try:
     result = x / y
-  except ZeroDivisionError as err:
+  except ZeroDivisionError:
     return "Can not divide by zero! Please change the value of right operand."
-  
+
   return result
 
 # Modulus function: This function returns the modulus after doing the division of two numbers, with error handling when division by zero.
 def modulus(x, y):
   try:
     reminder = x % y
-  except ZeroDivisionError as err:
+  except ZeroDivisionError:
     return "Can not divide by zero! Please change the value of right operand."
   
   return reminder
 
-# User's input Function
-# def user_input():
-#   num1 = input('Enter first number ... ')
-#   if num1 
-#   # num2 = input('Enter second number ... ')
+# Function takes input from the users to make choice of one of the oparations and returns choice. With exception handling.
+def user_choice():
+  while True:
+    try:
+      choice = int(input("Enter choice (1/2/3/4/5): "))
+      if choice in [1, 2, 3, 4, 5]:
+        return choice
+      else:
+        print("Invalid Input: Choose between 1 to 5")
 
-#   return float(num1)
+    except ValueError:
+      print("Enter a valid and number!")
+  
+# Function takes user's input and returns the value by converting to float. With valueError exception.
+def user_input_number(sms):
+  while True:
+    try:
+      return float(input(sms))
+    except ValueError:
+      print("Enter a valid and real number.")
 
 
 """ 
@@ -45,21 +58,17 @@ Calculation function:
 4. And return the expected result.
 """
 def calculation():
-  print("Select operation: \n1. Adding \n2. Subtraction \n3. Multiplication \n4. Division \n5. Modulus")
+  while True:
+    print("Select operation: \n1. Adding \n2. Subtraction \n3. Multiplication \n4. Division \n5. Modulus")
 
-  # Take input from the users to make choice of one of the oparations. And the exception handling.
-  try:
-    choice = int(input("Choose one of the above options(1/2/3/4/5) ... "))
-  except ValueError as err:
-    print("Enter a valid number")
-    return err
+    # Call the choice functtion and store the result in a variable, choice.
+    choice = user_choice()
 
-  list_of_choice = [1, 2, 3, 4, 5]
+    # Call the user_input_number function to get two numbers from user and store in separate two variables.
+    firstNumber =  user_input_number("Enter first number: ")
+    secondNumber =  user_input_number("Enter second number: ")
 
-  if choice in list_of_choice:
-    firstNumber =  float(input("Enter first number ... "))
-    secondNumber =  float(input("Enter sceond number ... "))
-
+    # The conditional statement depends on the choosen oparations option 1 to 5 and display the results.
     if choice == 1:
       print(f"Adding: {firstNumber} + {secondNumber} = {adding(firstNumber, secondNumber)}")
     
@@ -74,15 +83,13 @@ def calculation():
     
     elif choice == 5:
       print(f"Modulus: {firstNumber} % {secondNumber} = {modulus(firstNumber, secondNumber)}")
-
-  else:
-    print("Invalid Input: Choose between 1 to 5")
-
-
-# While loop to have option to run the program till users want.
-if __name__ == "__main__":
-  while True:
-    calculation()
-    more_calculation = input("Do you want to calculate more? (yes/no) ... ")
-    if more_calculation != "yes" and more_calculation != "y":
+    
+    # Additional features, to ask the user if the program will continue the calculation process.
+    more_calculation = input("Do you want to calculate more? (Yes/No): ").lower()
+    if more_calculation != "yes" and more_calculation != 'y':
       break
+
+
+# Call the calculation function
+if __name__ == "__main__":
+  calculation()

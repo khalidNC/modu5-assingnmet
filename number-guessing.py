@@ -59,5 +59,6 @@ def play_game():
     else:
       print(f"{result}")
 
+# Call the play game function
 if __name__ == "__main__":
   play_game()
